@@ -1,4 +1,6 @@
-// my variables
+// don't need semicolons at the end of each line unless
+// I want to seperate multiple statements on a single line
+// where as each of these lines is a complete statement
 const express = require('express')
 const app = express()
 const port = 3000
