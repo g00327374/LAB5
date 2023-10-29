@@ -1,17 +1,31 @@
+// my variables
 const express = require('express')
 const app = express()
 const port = 3000
 const path = require('path');
+// incoming HTTP requests and extracts data from it
+// it is essential when handling data submitted through 
+// forms or when receiving data from API requests
 const bodyParser = require('body-parser');
 
+// confugires the body-parser to handle URL form data from
+// incoming HTTP requests
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// uses 'app' object which represents an instance of an
+// application to define a route for handling HTTP GET requests
 app.get('/name', (req, res) => {
+    // req.query.fname is used to acces the value of a query
+    // parameter named fname from incoming HTTP request
+    // query parameters are part of the URL and are used to 
+    // pass data to the server from the client
     console.log(req.query.fname);
+    // res.send() is a method to send a response to an HTTP client
     res.send('Hello ' + req.query.fname + " " + req.query.lname);
 })
 
+// sends a post request to the path /name route
 app.post('/name', (req, res) => {
     res.send('Hello ' + req.body.fname + " " + req.body.lname);
 })
